@@ -121,19 +121,14 @@ class HBNBCommand(cmd.Cmd):
 
     def do_count(self, arg):
         if arg is "":
-            for key, value in storage.all().items():
-                print(value)
+            print("** class name missing **")
             return
-        arg_list = arg.split()
+        arg_list = arg.split()            
         try:
             args = eval(arg_list[0])()
         except Class.DoesNotExist:
             print("** class doesn't exist")
             return
-        if len(arg_list) is 1:
-            print("** instance id missing **")
-            return
-        instance = []
         count = 0
         for key, value in storage.all().items():
             if key == "{}.{}".format(arg_list[0], arg_list[1]):
