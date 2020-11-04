@@ -26,6 +26,7 @@ class TestCodeFormat(unittest.TestCase):
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
+<<<<<<< HEAD:tests/test_models/test_engine/test_file_storage.py
     def setUp(self):
         """Sets Model to get tested"""
         self.base = FileStorage()
@@ -53,4 +54,8 @@ class TestCodeFormat(unittest.TestCase):
 
 
 if __name__ == '__main__':
+=======
+
+if __name__ == __'main'__:
+>>>>>>> 7fe7a50b1006578930f988cd93c10404bfeb74e5:tests/test_models/test_file_storage.py
     unittest.main()
