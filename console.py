@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 import cmd
-import string,sys
-
+import string
+import sys
+import string
 from models import storage
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
@@ -16,6 +17,14 @@ from itertools import count
 
 		
 class HBNBCommand(cmd.Cmd):
+
+    """Class for command interpreter"""
+    prompt = '(hbnb) '
+    file = None
+    my_class = {"BaseModel": BaseModel, "Amenity": Amenity,
+                "City": City, "Place": Place, "Review": Review,
+                "User": User, "State": State}
+
     prompt = '(hbnb) '
     my_class = {"BaseModel": BaseModel , "Amenity": Amenity ,
                 "City": City , "Place": Place , "Review": Review ,
@@ -28,21 +37,21 @@ class HBNBCommand(cmd.Cmd):
         "Quit command to exit the program"
         sys.exit(1)
     
-        def emptyline(self):
+    def emptyline(self):
         """Ignores empty spaces"""
         pass
 
     def do_create(self, arg):
-        """ 
-        Creates a new instance of BaseModel 
+        """
+        Creates a new instance of BaseModel
         and saves it to JSON file
-        """ 
+        """
         if arg == "":
             print("** class name missing **")
             return
         try:
             new_instance = {}
-            new_instance = eval(arg)() #eval returns the rslt evaluated from the expression
+            new_instance = eval(arg)()
             new_instance.save()
             print(new_instance.id)
         except NameError:
@@ -51,12 +60,26 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         """
-        Prints the string representation of an instance 
+        Prints the string representation of an instance
         based on the class name and id
         """
-        if arg is "": #if arg is an empty lit class name is missing
+        if arg is "":
             print(" class name missing ")
             return
+        arg_list = arg.split()
+        try:
+            args = eval(arg_list[0])()
+        except:
+            print("** class doesn't exist")
+            return
+        if len(arg_list) is 1:
+            print("** instance id missing **")
+            return
+        instance = 0 
+        for key, value in storage.all().items():
+            if arg is "": #if arg is an empty lit class name is missing
+                print(" class name missing ")
+                return
         arg_list = arg.split() #splitting the args
         try:
             args = eval(arg_list[0])() #returning the evaluation of id
@@ -118,11 +141,7 @@ class HBNBCommand(cmd.Cmd):
             for key, value in storage.all().items():
                 print(value)
             return
-
-        arg_list = arg.split()
-
         arg_list = arg.split() #splitting the args
-
         try:
             args = eval(arg_list[0])() #returning the evaluation of id
         except:
@@ -138,11 +157,6 @@ class HBNBCommand(cmd.Cmd):
                 count += 1
                 print(count)
 
-                
-
-
-
-    		
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
