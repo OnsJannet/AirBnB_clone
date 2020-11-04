@@ -47,5 +47,9 @@ class TestCodeFormat(unittest.TestCase):
         self.assertEqual(type(base.id), str)
         self.assertTrue(hasattr(base, "id"))
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> c18099510bb49713c4447643a40808a75478e0bc
 if __name__ == __'main'__:
     unittest.main()
