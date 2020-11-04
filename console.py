@@ -21,18 +21,19 @@ class HBNBCommand(cmd.Cmd):
     """Class for command interpreter"""
     prompt = '(hbnb) '
     file = None
+    
     my_class = {"BaseModel": BaseModel, "Amenity": Amenity,
                 "City": City, "Place": Place, "Review": Review,
                 "User": User, "State": State}
 
     def do_quit(self, arg):
-        "Quit command to exit the program"
-        sys.exit(1)
+        "Quit command to exit the program\n"
+        sys.exit(0)
 
     def do_EOF(self, arg):
-        "Quit command to exit the program"
-        sys.exit(1)
-    
+        "Quit command to exit the program\n"
+        sys.exit(0)
+
     def emptyline(self):
         """Ignores empty spaces"""
         pass
