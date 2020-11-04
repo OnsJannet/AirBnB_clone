@@ -25,14 +25,10 @@ class HBNBCommand(cmd.Cmd):
                 "City": City, "Place": Place, "Review": Review,
                 "User": User, "State": State}
 
-    prompt = '(hbnb) '
-    my_class = {"BaseModel": BaseModel , "Amenity": Amenity ,
-                "City": City , "Place": Place , "Review": Review ,
-                "User": User, "State": State}
-    file = None
     def do_quit(self, arg):
         "Quit command to exit the program"
         sys.exit(1)
+
     def do_EOF(self, arg):
         "Quit command to exit the program"
         sys.exit(1)
