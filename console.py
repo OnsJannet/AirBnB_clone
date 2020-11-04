@@ -25,18 +25,6 @@ class HBNBCommand(cmd.Cmd):
                 "City": City, "Place": Place, "Review": Review,
                 "User": User, "State": State}
 
-    def do_quit(self, arg):
-        "Quit command to exit the program\n"
-        sys.exit(0)
-
-    def do_EOF(self, arg):
-        "Quit command to exit the program\n"
-        sys.exit(0)
-
-    def emptyline(self):
-        """Ignores empty spaces"""
-        pass
-
     def do_create(self, arg):
         """
         Creates a new instance of BaseModel
@@ -151,6 +139,18 @@ class HBNBCommand(cmd.Cmd):
             if key == "{}.{}".format(arg_list[0], arg_list[1]):
                 count += 1
                 print(count)
+
+    def do_quit(self, arg):
+        "Quit command to exit the program\n"
+        sys.exit(0)
+
+    def do_EOF(self, arg):
+        "Quit command to exit the program\n"
+        sys.exit(0)
+
+    def emptyline(self):
+        """Ignores empty spaces"""
+        pass
 
 
 if __name__ == '__main__':
