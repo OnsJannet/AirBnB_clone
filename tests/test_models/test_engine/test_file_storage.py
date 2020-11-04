@@ -3,6 +3,8 @@
 from models.engine.file_storage import FileStorage
 import models
 import unittest
+import json
+import pep8
 from models.base_model import BaseModel
 from models.city import City
 from models.user import User
@@ -24,5 +26,31 @@ class TestCodeFormat(unittest.TestCase):
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
-if __name__ == __'main'__:
+    def setUp(self):
+        """Sets Model to get tested"""
+        self.base = FileStorage()
+
+    def tearDown(self):
+        FileStorage._FileStorage__objects = {}
+        if os.path.exists("file.json"):
+            os.remove("file.json")
+
+    def updated_at_test(self):
+        """created_at testing"""
+        base = FileStorage()
+        self.assertEqual(type(base.updated_at), type(datetime.now()))
+        self.assertTrue(hasattr(base, "update_at"))
+
+    def test_all(self):
+        storage = FileStorage()
+        self.assertEqual(storage.all(), {})
+
+    def test_new(self):
+        base = FileStorage()
+        storage = FileStorage()
+        storage.new(base)
+        self.assertNotEqual(storage.all(), {})
+
+
+if __name__ == '__main__':
     unittest.main()

@@ -123,7 +123,7 @@ class HBNBCommand(cmd.Cmd):
         if arg is "":
             print("** class name missing **")
             return
-        arg_list = arg.split()            
+        arg_list = arg.split()
         try:
             args = eval(arg_list[0])()
         except Class.DoesNotExist:

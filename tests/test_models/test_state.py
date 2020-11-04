@@ -48,5 +48,5 @@ class TestCodeFormat(unittest.TestCase):
         self.assertTrue(hasattr(base, "id"))
 
 
-if __name__ == __'main'__:
+if __name__ == '__main__':
     unittest.main()
