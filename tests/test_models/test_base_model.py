@@ -9,10 +9,7 @@ from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 
 
-
-
 class TestCodeFormat(unittest.TestCase):
-
 
     def test_pep8_conformance(self):
         """Test that we conform to PEP8."""
@@ -21,11 +18,9 @@ class TestCodeFormat(unittest.TestCase):
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
-
     def setUp(self):
         """Sets Model to get tested"""
         self.base = BaseModel()
-
 
     def tearDown(self):
         """removes file"""
@@ -62,9 +57,6 @@ class TestCodeFormat(unittest.TestCase):
         storage = FileStorage()
         storage.new(base)
         self.assertNotEqual(storage.all(), {})
-    
-
-
 
 
 if __name__ == '__main__':
