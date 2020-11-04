@@ -8,7 +8,6 @@ import os
 from models.user import User
 
 
-
 class TestCodeFormat(unittest.TestCase):
 
 
@@ -31,7 +30,6 @@ class TestCodeFormat(unittest.TestCase):
         """ tests Instance Creation"""
         self.assertIsInstance(self.user, BaseModel)
 
-
     def created_at_test(self):
         """created_at testing"""
         base = User()
@@ -51,4 +49,5 @@ class TestCodeFormat(unittest.TestCase):
         self.assertTrue(hasattr(base, "id"))
 
 
-
+if __name__ == '__main__':
+    unittest.main()
