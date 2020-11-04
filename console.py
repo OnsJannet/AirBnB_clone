@@ -15,13 +15,12 @@ from models.user import User
 from itertools import count
 
 
-		
 class HBNBCommand(cmd.Cmd):
 
     """Class for command interpreter"""
     prompt = '(hbnb) '
     file = None
-    
+
     my_class = {"BaseModel": BaseModel, "Amenity": Amenity,
                 "City": City, "Place": Place, "Review": Review,
                 "User": User, "State": State}
@@ -66,34 +65,33 @@ class HBNBCommand(cmd.Cmd):
         arg_list = arg.split()
         try:
             args = eval(arg_list[0])()
-        except:
+        except Class.DoesNotExist:
             print("** class doesn't exist")
             return
         if len(arg_list) is 1:
             print("** instance id missing **")
             return
-        instance = 0 
+        instance = 0
         for key, value in storage.all().items():
-            if arg is "": #if arg is an empty lit class name is missing
+            if arg is "":
                 print(" class name missing ")
                 return
-        arg_list = arg.split() #splitting the args
+        arg_list = arg.split()
         try:
-            args = eval(arg_list[0])() #returning the evaluation of id
-        except:
+            args = eval(arg_list[0])()
+        except Class.DoesNotExist:
             print("** class doesn't exist")
             return
-        if len(arg_list) is 1: #if arg == 1 (no id) id is missing
+        if len(arg_list) is 1:
             print("** instance id missing **")
             return
-        instance = 0 
-        for key, value in storage.all().items(): # since storage.all have all objects with id
-            if key == "{}.{}".format(arg_list[0], arg_list[1]): #checkig the id + creation
+        instance = 0
+        for key, value in storage.all().items():
+            if key == "{}.{}".format(arg_list[0], arg_list[1]):
                 print(value)
                 instance = 1
-        if instance == 0: 
+        if instance == 0:
             print("** no instance found **")
-
 
     def do_destroy(self, arg):
         """Deletes an instance based on the class name and id"""
@@ -112,42 +110,42 @@ class HBNBCommand(cmd.Cmd):
             strg.save()
 
     def do_all(self, arg):
-        if arg is "": #if arg is an empty lit class name is missing
+        if arg is "":
             for key, value in storage.all().items():
                 print(value)
             return
-        arg_list = arg.split() #splitting the args
+        arg_list = arg.split()
         try:
-            args = eval(arg_list[0])() #returning the evaluation of id
-        except:
+            args = eval(arg_list[0])()
+        except Class.DoesNotExist:
             print("** class doesn't exist")
             return
-        if len(arg_list) is 1: #if arg == 1 (no id) id is missing
+        if len(arg_list) is 1:
             print("** instance id missing **")
             return
-        instance = [] 
-        for key, value in storage.all().items(): # since storage.all have all objects with id
-            if key == "{}.{}".format(arg_list[0], arg_list[1]): #checkig the id + creation
+        instance = []
+        for key, value in storage.all().items():
+            if key == "{}.{}".format(arg_list[0], arg_list[1]):
                 print(value)
                 instance.append(value)
-        if instance == 0: 
+        if instance == 0:
             print("** no instance found **")
 
-    def do_count (self,arg):
-        if arg is "": #if arg is an empty lit class name is missing
+    def do_count(self, arg):
+        if arg is "":
             for key, value in storage.all().items():
                 print(value)
             return
-        arg_list = arg.split() #splitting the args
+        arg_list = arg.split()
         try:
-            args = eval(arg_list[0])() #returning the evaluation of id
-        except:
+            args = eval(arg_list[0])()
+        except Class.DoesNotExist:
             print("** class doesn't exist")
             return
-        if len(arg_list) is 1: #if arg == 1 (no id) id is missing
+        if len(arg_list) is 1:
             print("** instance id missing **")
             return
-        instance = [] 
+        instance = []
         count = 0
         for key, value in storage.all().items():
             if key == "{}.{}".format(arg_list[0], arg_list[1]):
