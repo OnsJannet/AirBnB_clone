@@ -8,9 +8,7 @@ import os
 from models.amenity import Amenity
 
 
-
 class TestCodeFormat(unittest.TestCase):
-
 
     def test_pep8_conformance(self):
         """Test that we conform to PEP8."""
@@ -31,7 +29,6 @@ class TestCodeFormat(unittest.TestCase):
         """ tests Instance Creation"""
         self.assertIsInstance(self.amenity, BaseModel)
 
-
     def created_at_test(self):
         """created_at testing"""
         base = Amenity()
@@ -49,3 +46,7 @@ class TestCodeFormat(unittest.TestCase):
         base = Amenity()
         self.assertEqual(type(base.id), str)
         self.assertTrue(hasattr(base, "id"))
+
+
+if __name__ == '__main__':
+    unittest.main()
