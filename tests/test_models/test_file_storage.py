@@ -14,8 +14,8 @@ from os import path
 import os
 from datetime import datetime
 
-class TestCodeFormat(unittest.TestCase):
 
+class TestCodeFormat(unittest.TestCase):
 
     def test_pep8_conformance(self):
         """Test that we conform to PEP8."""
@@ -23,4 +23,3 @@ class TestCodeFormat(unittest.TestCase):
         result = pep8style.check_files(['models/base_model.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
-                        
