@@ -10,7 +10,6 @@ from models.user import User
 
 class TestCodeFormat(unittest.TestCase):
 
-
     def test_pep8_conformance(self):
         """Test that we conform to PEP8."""
         pep8style = pep8.StyleGuide(quiet=True)
