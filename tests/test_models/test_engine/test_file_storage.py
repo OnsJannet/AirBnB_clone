@@ -73,6 +73,10 @@ class TestCodeFormat(unittest.TestCase):
         base.reload()
         self.assertTrue(os.path.exists(self.path_file))
 
+        def to_dict(self):
+        base = FileStorage()
+        self.assertEqual(type(base.to_dict()), dict)
+
 
 
 if __name__ == '__main__':
