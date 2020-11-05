@@ -59,6 +59,11 @@ class TestCodeFormat(unittest.TestCase):
         storage.new(base)
         self.assertNotEqual(storage.all(), {})
 
+    def save(self):
+        base = BaseModel()
+        base.save()
+        self.assertTrue(os.path.exists(self.path_file))
+
 
 if __name__ == '__main__':
     unittest.main()
