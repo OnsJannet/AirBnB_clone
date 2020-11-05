@@ -21,9 +21,10 @@ class BaseModel:
         if kwargs:
             if kwargs is not None:
                 for key, value in kwargs.items():
-                    if key == "created_at" or key == "updated_at":
-                        New_object = datetime.strptime(
-                            value, "%Y-%m-%dT%H:%M:%S.%f")
+                    if (key == "created_at" or key == "updated_at"):
+                        if (type(value) == str):
+                            new_object = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+                            self.__dict__[key] = new_object
                     else:
                         self.__dict__[key] = value
 
