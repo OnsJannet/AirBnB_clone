@@ -66,12 +66,12 @@ class TestCodeFormat(unittest.TestCase):
     def save(self):
         base = FileStorage()
         base.save()
-        self.assertTrue(os.path.exists(self.path_file))
+        self.assertTrue(os.path.exists(self.path_file('file.json')))
 
     def reload(self):
         base = FileStorage()
         base.reload()
-        self.assertTrue(os.path.exists(self.path_file))
+        self.assertTrue(os.path.exists(self.path_file('file.json')))
 
     def to_dict(self):
     base = FileStorage()
