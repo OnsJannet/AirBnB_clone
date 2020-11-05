@@ -84,6 +84,10 @@ class TestCodeFormat(unittest.TestCase):
         self.assertEqual(str(new), "[{:s}] ({:s}) {}".format(
             new.__class__.__name__, new.id, new.__dict__))
 
+    def test_id(self):
+        new = BaseModel()
+        self.assertEqual(type(new.id), str)
+
 
 if __name__ == '__main__':
     unittest.main()
