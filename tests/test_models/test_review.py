@@ -43,10 +43,23 @@ class TestCodeFormat(unittest.TestCase):
         self.assertTrue(hasattr(base, "update_at"))
 
     def test_user_id(self):
-        '''Test Email'''
+        '''Test user'''
         base = Review()
-        self.assertEqual(type(base.id), str)
-        self.assertTrue(hasattr(base, "id"))
+        self.assertEqual(type(base.user_id), str)
+        self.assertTrue(hasattr(base, "user_id"))
+
+    def test_place_id(self):
+        '''Test place'''
+        base = Review()
+        self.assertEqual(type(base.place_id), str)
+        self.assertTrue(hasattr(base, "place_id"))
+
+    def test_text(self):
+        '''Test text'''
+        base = Review()
+        self.assertEqual(type(base.text), str)
+        self.assertTrue(hasattr(base, "text"))
+
 
 
 if __name__ == '__main__':
