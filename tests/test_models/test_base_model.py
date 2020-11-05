@@ -1,16 +1,14 @@
 #!/usr/bin/python3
-''' Class Test '''
 import unittest
 import json
-import pep8
 import inspect
 import datetime
 import os
 from models.base_model import BaseModel
-from models.engine.file_storage import FileStorage
+import unittest
 
 
-class TestCodeFormat(unittest.TestCase):
+class TestBaseModelMethods(unittest.TestCase):
 
     def test_pep8_conformance(self):
         """Test that we conform to PEP8."""
@@ -19,75 +17,24 @@ class TestCodeFormat(unittest.TestCase):
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
-    def setUp(self):
-        """Sets Model to get tested"""
-        self.base = BaseModel()
+    def test_id(self):
+        new = BaseModel()
+        self.assertEqual(type(new.id), str)
 
-    def tearDown(self):
-        """removes file"""
-        if os.path.exists("file.json"):
-            os.remove("file.json")
+    def test_created_at(self):
+        new = BaseModel()
+        self.assertEqual(type(new.created_at),
+                         datetime.datetime)
 
-    def object_Instance_creation_test(self):
-        """ tests Instance Creation"""
-        base = BaseModel()
-        base.name = "Holberton"
-        self.assertTrue(base.name)
-        base.my_number = 89
-        self.assertTrue(base.my_number)
-        self.assertTrue(base.id)
-
-    def created_at_test(self):
-        """created_at testing"""
-        base = BaseModel()
-        self.assertEqual(type(base.created_at), type(datetime.now()))
-        self.assertTrue(hasattr(base, "created_at"))
-
-    def updated_at_test(self):
-        """created_at testing"""
-        base = BaseModel()
-        self.assertEqual(type(base.updated_at), type(datetime.now()))
-        self.assertTrue(hasattr(base, "update_at"))
-
-    def test_all(self):
-        storage = FileStorage()
-        self.assertEqual(storage.all(), {})
-
-    def test_new(self):
-        base = BaseModel()
-        storage = FileStorage()
-        storage.new(base)
-        self.assertNotEqual(storage.all(), {})
-
-    def save(self):
-        base = BaseModel()
-        base.save()
-        self.assertTrue(os.path.exists(self.path_file))
-
-    def save_b(self):
-        pass
-
-    def to_dict(self):
-        base = BaseModel()
-        self.assertEqual(type(base.to_dict()), dict)
-
-    def to_dict_attr(self):
-        b1 = BaseModel()
-        dictionary = base.to_dict()
-        self.assertEqual('id' in dictionary, True)
-        self.assertEqual('__class__' in dictionary, True)
-        self.assertEqual('created_at' in dictionary, True)
-        self.assertEqual('updated_at' in dictionary, True)
+    def test_updated_at(self):
+        new = BaseModel()
+        self.assertEqual(type(new.updated_at),
+                         datetime.datetime)
 
     def test_str(self):
         new = BaseModel()
         self.assertEqual(str(new), "[{:s}] ({:s}) {}".format(
             new.__class__.__name__, new.id, new.__dict__))
-
-    def test_id(self):
-        new = BaseModel()
-        self.assertEqual(type(new.id), str)
-
 
 if __name__ == '__main__':
     unittest.main()
