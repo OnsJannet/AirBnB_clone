@@ -68,6 +68,14 @@ class TestCodeFormat(unittest.TestCase):
         base = BaseModel()
         self.assertEqual(type(base.to_dict()), dict)
 
+    def to_dict_attr(self):
+        b1 = BaseModel()
+        dictionary = base.to_dict()
+        self.assertEqual('id' in dictionary, True)
+        self.assertEqual('__class__' in dictionary, True)
+        self.assertEqual('created_at' in dictionary, True)
+        self.assertEqual('updated_at' in dictionary, True)
+
 
 
 if __name__ == '__main__':
