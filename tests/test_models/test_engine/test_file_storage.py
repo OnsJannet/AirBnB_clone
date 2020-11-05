@@ -31,9 +31,24 @@ class TestCodeFormat(unittest.TestCase):
         self.base = FileStorage()
 
     def tearDown(self):
-        FileStorage._FileStorage__objects = {}
+        """removes file"""
         if os.path.exists("file.json"):
             os.remove("file.json")
+
+    def object_Instance_creation_test(self):
+        """ tests Instance Creation"""
+        base = FileStorage()
+        base.name = "Holberton"
+        self.assertTrue(base.name)
+        base.my_number = 89
+        self.assertTrue(base.my_number)
+        self.assertTrue(base.id)
+
+    def created_at_test(self):
+        """created_at testing"""
+        base = FileStorage()
+        self.assertEqual(type(base.created_at), type(datetime.now()))
+        self.assertTrue(hasattr(base, "created_at"))
 
     def updated_at_test(self):
         """created_at testing"""
@@ -46,11 +61,11 @@ class TestCodeFormat(unittest.TestCase):
         self.assertEqual(storage.all(), {})
 
     def test_new(self):
-        base = FileStorage()
+        base = BaseModel()
         storage = FileStorage()
         storage.new(base)
         self.assertNotEqual(storage.all(), {})
 
 
-if __name__ == __'main'__:
+if __name__ == '__main__':
     unittest.main()
