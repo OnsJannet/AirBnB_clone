@@ -63,10 +63,16 @@ class TestCodeFormat(unittest.TestCase):
         storage.new(base)
         self.assertNotEqual(storage.all(), {})
 
-        def save(self):
+    def save(self):
         base = FileStorage()
         base.save()
         self.assertTrue(os.path.exists(self.path_file))
+
+    def reload(self):
+        base = FileStorage()
+        base.reload()
+        self.assertTrue(os.path.exists(self.path_file))
+
 
 
 if __name__ == '__main__':
