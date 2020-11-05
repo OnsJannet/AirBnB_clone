@@ -42,15 +42,13 @@ class FileStorage:
 
     def reload(self):
         """reload from JSON"""
-        ids = {
-            'BaseModel': BaseModel, 'User': User, 'Place': Place,
-            'State': State, 'City': City, 'Amenity': Amenity,
-            'Review': Review
-            }
+        my_class = {"BaseModel": BaseModel, "Amenity": Amenity,
+                "City": City, "Place": Place, "Review": Review,
+                "User": User, "State": State}
         dic_to_fill = {}
         if(os.stat(self.__file_path).st_size != 0):
             with open(self.__file_path) as json_file:
                 dict_to_fill = json.load(json_file)
                 for key, value in dict_to_fill.items():
-                    self.__objects[key] = ids[value
+                    self.__objects[key] = my_class[value
                                               ['__class__']](**value)
