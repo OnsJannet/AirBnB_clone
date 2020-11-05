@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+''' Class Test '''
 import unittest
 import json
 import pep8
