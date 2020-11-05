@@ -41,6 +41,7 @@ class BaseModel:
         from models import storage
         storage.new(self)
         storage.save()
+
     def to_dict(self):
         """returns a dictionary containing
         all keys/values of __dict__ of the instance"""
