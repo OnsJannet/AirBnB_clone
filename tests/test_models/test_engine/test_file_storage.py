@@ -26,29 +26,15 @@ class TestCodeFormat(unittest.TestCase):
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
+<<<<<<< HEAD:tests/test_models/test_engine/test_file_storage.py
     def setUp(self):
         """Sets Model to get tested"""
         self.base = FileStorage()
 
     def tearDown(self):
-        """removes file"""
+        FileStorage._FileStorage__objects = {}
         if os.path.exists("file.json"):
             os.remove("file.json")
-
-    def object_Instance_creation_test(self):
-        """ tests Instance Creation"""
-        base = FileStorage()
-        base.name = "Holberton"
-        self.assertTrue(base.name)
-        base.my_number = 89
-        self.assertTrue(base.my_number)
-        self.assertTrue(base.id)
-
-    def created_at_test(self):
-        """created_at testing"""
-        base = FileStorage()
-        self.assertEqual(type(base.created_at), type(datetime.now()))
-        self.assertTrue(hasattr(base, "created_at"))
 
     def updated_at_test(self):
         """created_at testing"""
@@ -61,11 +47,15 @@ class TestCodeFormat(unittest.TestCase):
         self.assertEqual(storage.all(), {})
 
     def test_new(self):
-        base = BaseModel()
+        base = FileStorage()
         storage = FileStorage()
         storage.new(base)
         self.assertNotEqual(storage.all(), {})
 
 
 if __name__ == '__main__':
+=======
+
+if __name__ == __'main'__:
+>>>>>>> 7fe7a50b1006578930f988cd93c10404bfeb74e5:tests/test_models/test_file_storage.py
     unittest.main()
