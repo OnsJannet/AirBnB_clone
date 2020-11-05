@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+''' Module that supports the console behavior
+'''
 import cmd
 import string
 import sys
