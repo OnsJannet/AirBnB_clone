@@ -92,28 +92,21 @@ class HBNBCommand(cmd.Cmd):
         else:
             del obj_dict["{}.{}".format(list_arg[0], list_arg[1])]
             storage.save()
-
+    
     def do_all(self, arg):
-        if arg == "":
-            for key, value in storage.all().items():
-                print(value)
-            return
-        arg_list = arg.split()
-        try:
-            args = eval(arg_list[0])()
-        except Exception:
-            print("** class doesn't exist**")
-            return
-        if len(arg_list) == 1:
-            print("** instance id missing **")
-            return
-        instance = []
-        for key, value in storage.all().items():
-            if key == "{}.{}".format(arg_list[0], arg_list[1]):
-                print(value)
-                instance.append(value)
-        if instance == 0:
-            print("** no instance found **")
+        """ Prints all string representation of all instances based or not on the class name.
+         Ex: $ all BaseModel or $ all."""
+        list_arg = arg.split()
+        if len(list_arg) > 0 and list_arg[0] not in HBNBCommand.my_class:
+            print("** class doesn't exist **")
+        else:
+            obj_list = []
+            for obj in storage.all().values():
+                if len(list_arg) > 0 and list_arg[0] == obj.__class__.__name__:
+                    obj_list.append(obj.__str__())
+                elif len(list_arg) == 0:
+                    obj_list.append(obj.__str__())
+            print(obj_list)
 
     def do_update(self, arg):
         """Usage: update <class> <id> <attribute_name> <attribute_value> or
