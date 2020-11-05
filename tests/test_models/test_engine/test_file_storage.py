@@ -56,9 +56,6 @@ class TestCodeFormat(unittest.TestCase):
         self.assertEqual(type(base.updated_at), type(datetime.now()))
         self.assertTrue(hasattr(base, "update_at"))
 
-    def test_all(self):
-        storage = FileStorage()
-        self.assertEqual(storage.all(), {})
 
     def test_new(self):
         base = BaseModel()
