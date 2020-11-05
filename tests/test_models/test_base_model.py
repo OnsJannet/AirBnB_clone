@@ -79,6 +79,10 @@ class TestCodeFormat(unittest.TestCase):
         self.assertEqual('created_at' in dictionary, True)
         self.assertEqual('updated_at' in dictionary, True)
 
+    def test_str(self):
+        new = BaseModel()
+        self.assertEqual(str(new), "[{:s}] ({:s}) {}".format(
+            new.__class__.__name__, new.id, new.__dict__))
 
 
 if __name__ == '__main__':
