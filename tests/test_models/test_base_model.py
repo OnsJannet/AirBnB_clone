@@ -64,6 +64,11 @@ class TestCodeFormat(unittest.TestCase):
         base.save()
         self.assertTrue(os.path.exists(self.path_file))
 
+    def to_dict(self):
+        base = BaseModel()
+        self.assertEqual(type(base.to_dict()), dict)
+
+
 
 if __name__ == '__main__':
     unittest.main()
