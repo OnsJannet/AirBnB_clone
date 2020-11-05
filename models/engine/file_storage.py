@@ -15,13 +15,10 @@ class FileStorage:
     """ A class called FileStorage
     attributes:
     attr1(__file_path): JSON file path
-    attr2(__objects): dictionary
-    """
-    def __init__(self):
-        """initializing an instance"""
-        self.__file_path = "file.json"
-        open(self.__file_path, "a")
-        self.__objects = {}
+    attr2(__objects): dictionary"""
+    __file_path = "file.json"
+    open(__file_path, "a")
+    __objects = {}
 
     def all(self):
         """ return all objects"""
