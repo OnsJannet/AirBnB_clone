@@ -77,8 +77,10 @@ class TestCodeFormat(unittest.TestCase):
     base = FileStorage()
     self.assertEqual(type(base.to_dict()), dict)
 
-    def test_file_path(self):
-    self.assertEqual(FileStorage._FileStorage__file_path, self.path_file)
+
+    def test_path(self):
+    storage = FileStorage()
+    self.assertTrue(isinstance(storage._FileStorage__file_path, str))
 
 
 
