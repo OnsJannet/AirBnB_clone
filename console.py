@@ -102,7 +102,7 @@ class HBNBCommand(cmd.Cmd):
         try:
             args = eval(arg_list[0])()
         except Exception:
-            print("** class doesn't exist")
+            print("** class doesn't exist**")
             return
         if len(arg_list) is 1:
             print("** instance id missing **")
@@ -124,7 +124,7 @@ class HBNBCommand(cmd.Cmd):
         try:
             args = eval(arg_list[0])()
         except Exception:
-            print("** class doesn't exist")
+            print("** class doesn't exist**")
             return
         if len(arg_list) is 1:
             print("** instance id missing **")
