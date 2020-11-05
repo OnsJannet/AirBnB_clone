@@ -58,13 +58,13 @@ class HBNBCommand(cmd.Cmd):
         based on the class name and id
         """
         if arg is "":
-            print(" class name missing ")
+            print("** class name missing **")
             return
         arg_list = arg.split()
         try:
             args = eval(arg_list[0])()
         except Exception:
-            print("** class doesn't exist")
+            print("** class doesn't exist **")
             return
         if len(arg_list) is 1:
             print("** instance id missing **")
@@ -84,11 +84,11 @@ class HBNBCommand(cmd.Cmd):
         strg.reload()
         sv = strg.all()
         if arg == "":
-            print(" class name missing ")
+            print("** class name missing **")
         elif list_arg[0] not in HBNBCommand.my_class.keys():
-            print(" class doesn't exist ")
+            print("** class doesn't exist **")
         elif len(list_arg) < 2:
-            print(" instance id missing ")
+            print("** instance id missing **")
         else:
             sv.pop(list_arg[0] + '.' + list_arg[1], None)
             strg.save()
