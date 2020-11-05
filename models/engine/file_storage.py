@@ -49,5 +49,5 @@ class FileStorage:
                 for key, value in dict_to_fill.items():
                     self.__objects[key] =\
                         my_class[value['__class__']](**value)
-
+                    self.save(__objects[key])
 
