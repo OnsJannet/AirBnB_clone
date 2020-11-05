@@ -49,7 +49,7 @@ class BaseModel:
         new_dict['__class__'] = self.__class__.__name__
         if not(type(new['updated_at']) is str):
             new_dict['created_at'] = self.created_at.strftime(
-            "%Y-%m-%dT%H:%M:%S.%f")
+                "%Y-%m-%dT%H:%M:%S.%f")
             new_dict['updated_at'] = self.updated_at.strftime(
-            "%Y-%m-%dT%H:%M:%S.%f")
+                "%Y-%m-%dT%H:%M:%S.%f")
         return new_dict
