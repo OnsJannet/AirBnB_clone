@@ -74,13 +74,13 @@ class TestCodeFormat(unittest.TestCase):
         self.assertTrue(os.path.exists(self.path_file('file.json')))
 
     def to_dict(self):
-    base = FileStorage()
-    self.assertEqual(type(base.to_dict()), dict)
+        base = FileStorage()
+        self.assertEqual(type(base.to_dict()), dict)
 
 
     def test_path(self):
-    storage = FileStorage()
-    self.assertTrue(isinstance(storage._FileStorage__file_path, str))
+        storage = FileStorage()
+        self.assertTrue(isinstance(storage._FileStorage__file_path, str))
 
 
 
