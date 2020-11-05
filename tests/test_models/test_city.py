@@ -14,7 +14,7 @@ class TestCodeFormat(unittest.TestCase):
     def test_pep8_conformance(self):
         """Test that we conform to PEP8."""
         pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/base_model.py'])
+        result = pep8style.check_files(['models/city.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
@@ -44,17 +44,16 @@ class TestCodeFormat(unittest.TestCase):
 
     def test_name(self):
         '''name testing'''
-        base = Amenity()
+        base = City()
         self.assertTrue(hasattr(base, "name"))
         self.assertEqual(type(base.name), str)
     
     def test_state_id(self):
         '''state_id testing'''
-        base = Amenity()
+        base = City()
         self.assertTrue(hasattr(base, "state_id"))
         self.assertEqual(type(base.state_id), str)
 
 if __name__ == '__main__':
     unittest.main()
-
 

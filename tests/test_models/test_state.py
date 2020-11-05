@@ -42,65 +42,11 @@ class TestCodeFormat(unittest.TestCase):
         self.assertEqual(type(base.updated_at), type(datetime.now()))
         self.assertTrue(hasattr(base, "update_at"))
 
-    def test_id(self):
-        """city id testing"""
+    def name(self):
+        '''name'''
         base = State()
-        self.assertEqual(type(base.id), str)
-        self.assertTrue(hasattr(base, "city_id"))
-
-    def test_user_id(self):
-        """ user id testing"""             
-        base = State()
-        self.assertEqual(type(base.id), str)
-        self.assertTrue(hasattr(base, "user_id"))
-
-    def test_place_description(self):
-        '''description testing'''
-        base = State()
-        self.assertTrue(hasattr(base, "description"))
-        self.assertEqual(type(base.description), str)
-
-    def test_place_number_rooms(self):
-        '''number of rooms testing'''
-        base = State()
-        self.assertTrue(hasattr(base, "number_rooms"))
-        self.assertEqual(type(base.number_rooms), int)
-
-    def test_place_number_bathrooms(self):
-        '''number of Tbathrooms testing'''
-        base = State()
-        self.assertTrue(hasattr(base, "number_bathrooms"))
-        self.assertEqual(type(base.number_bathrooms), int)
-
-    def test_place_max_guest(self):
-        '''max guest testing'''
-        base = State()
-        self.assertTrue(hasattr(base, "max_guest"))
-        self.assertEqual(type(base.max_guest), int)
-
-    def test_price_by_night(self):
-        '''price by night testing'''
-        base = State()
-        self.assertTrue(hasattr(base, "price_by_night"))
-        self.assertEqual(type(base.price_by_night), int)
-
-    def test_latitude(self):
-        '''latitude testing'''
-        base = State()
-        self.assertTrue(hasattr(base, "latitude"))
-        self.assertEqual(type(base.latitude), float)
-
-    def test_longitude(self):
-        '''longtitude testing'''
-        base = State()
-        self.assertTrue(hasattr(base, "longitude"))
-        self.assertEqual(type(base.longitude), float)
-
-    def test_amenity(self):
-        '''amenity testing'''
-        base = State()
-        self.assertTrue(hasattr(base, "amenity_ids"))
-        self.assertEqual(type(base.amenity_ids), list)
+        self.assertEqual(type(base.name), str)
+        self.assertTrue(hasattr(base, "name"))
 
 
 

@@ -6,7 +6,9 @@ import pep8
 import inspect
 import datetime
 import os
+from models.base_model import BaseModel
 from models.amenity import Amenity
+
 
 
 class TestCodeFormat(unittest.TestCase):
@@ -43,11 +45,10 @@ class TestCodeFormat(unittest.TestCase):
         self.assertTrue(hasattr(base, "update_at"))
 
     def test_name(self):
-        '''name testing'''
+        """name testing"""
         base = Amenity()
         self.assertTrue(hasattr(base, "name"))
         self.assertEqual(type(base.name), str)
 
 if __name__ == '__main__':
     unittest.main()
-
