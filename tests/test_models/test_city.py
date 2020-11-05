@@ -42,9 +42,18 @@ class TestCodeFormat(unittest.TestCase):
         self.assertEqual(type(base.updated_at), type(datetime.now()))
         self.assertTrue(hasattr(base, "update_at"))
 
-    def test_user_id(self):
-        '''Test Email'''
-        base = City()
-        self.assertEqual(type(base.id), str)
-        self.assertTrue(hasattr(base, "id"))
+    def test_name(self):
+        '''name testing'''
+        base = Amenity()
+        self.assertTrue(hasattr(base, "name"))
+        self.assertEqual(type(base.name), str)
+    
+    def test_state_id(self):
+        '''state_id testing'''
+        base = Amenity()
+        self.assertTrue(hasattr(base, "state_id"))
+        self.assertEqual(type(base.state_id), str)
+
+if __name__ == '__main__':
+    unittest.main()
 
