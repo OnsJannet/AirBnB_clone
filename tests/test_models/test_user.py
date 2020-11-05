@@ -42,11 +42,29 @@ class TestCodeFormat(unittest.TestCase):
         self.assertEqual(type(base.updated_at), type(datetime.now()))
         self.assertTrue(hasattr(base, "update_at"))
 
-    def test_user_id(self):
+    def test_email(self):
         '''Test Email'''
         base = User()
-        self.assertEqual(type(base.id), str)
-        self.assertTrue(hasattr(base, "id"))
+        self.assertEqual(type(base.email), str)
+        self.assertTrue(hasattr(base, "email"))
+
+    def test_password(self):
+        '''Test password'''
+        base = User()
+        self.assertEqual(type(base.password), str)
+        self.assertTrue(hasattr(base, "password"))
+
+    def test_first_name(self):
+        '''Test first name'''
+        base = User()
+        self.assertEqual(type(base.first_name), str)
+        self.assertTrue(hasattr(base, "first_name"))
+
+    def test_last_name(self):
+        '''Test last name'''
+        base = User()
+        self.assertEqual(type(base.last_name), str)
+        self.assertTrue(hasattr(base, "last_name"))
 
 
 if __name__ == '__main__':
