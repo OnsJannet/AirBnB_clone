@@ -27,12 +27,12 @@ class TestCodeFormat(unittest.TestCase):
                          "Found code style errors (and warnings).")
 
     def test_base_model_save(self):
-        new = BaseModel()
+        base = BaseModel()
         new.save()
         self.assertTrue(os.path.exists('file.json'))
 
     def to_dict(self):
-        base = BaseModel()
+        base = FileStorage()
         self.assertEqual(type(base.to_dict()), dict)
 
 
