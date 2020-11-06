@@ -31,6 +31,10 @@ class TestCodeFormat(unittest.TestCase):
         new.save()
         self.assertTrue(os.path.exists('file.json'))
 
+    def to_dict(self):
+        base = BaseModel()
+        self.assertEqual(type(base.to_dict()), dict)
+
 
 if __name__ == '__main__':
     unittest.main()
