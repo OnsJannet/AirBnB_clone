@@ -26,56 +26,10 @@ class TestCodeFormat(unittest.TestCase):
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
-    def setUp(self):
-        """Sets Model to get tested"""
-        self.base = FileStorage()
-
-    def tearDown(self):
-        """removes file"""
-        if os.path.exists("file.json"):
-            os.remove("file.json")
-
-    def object_Instance_creation_test(self):
-        """ tests Instance Creation"""
-        base = FileStorage()
-        base.name = "Holberton"
-        self.assertTrue(base.name)
-        base.my_number = 89
-        self.assertTrue(base.my_number)
-        self.assertTrue(base.id)
-
-    def created_at_test(self):
-        """created_at testing"""
-        base = FileStorage()
-        self.assertEqual(type(base.created_at), type(datetime.now()))
-        self.assertTrue(hasattr(base, "created_at"))
-
-    def updated_at_test(self):
-        """created_at testing"""
-        base = FileStorage()
-        self.assertEqual(type(base.updated_at), type(datetime.now()))
-        self.assertTrue(hasattr(base, "update_at"))
-
-
-    def save(self):
-        base = FileStorage()
-        base.save()
-        self.assertTrue(os.path.exists(self.path_file('file.json')))
-
-    def reload(self):
-        base = FileStorage()
-        base.reload()
-        self.assertTrue(os.path.exists(self.path_file('file.json')))
-
-    def to_dict(self):
-        base = FileStorage()
-        self.assertEqual(type(base.to_dict()), dict)
-
-
-    def test_path(self):
-        storage = FileStorage()
-        self.assertTrue(isinstance(storage._FileStorage__file_path, str))
-
+    def test_base_model_save(self):
+        new = BaseModel()
+        new.save()
+        self.assertTrue(os.path.exists('file.json'))
 
 
 if __name__ == '__main__':
