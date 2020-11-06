@@ -23,7 +23,8 @@ class BaseModel:
                 for key, value in kwargs.items():
                     if (key == "created_at" or key == "updated_at"):
                         if (type(value) == str):
-                            new_object = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+                            new_object = datetime.strptime(
+                                value, '%Y-%m-%dT%H:%M:%S.%f')
                             self.__dict__[key] = new_object
                     else:
                         self.__dict__[key] = value
