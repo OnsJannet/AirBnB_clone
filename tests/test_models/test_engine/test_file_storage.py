@@ -57,12 +57,6 @@ class TestCodeFormat(unittest.TestCase):
         self.assertTrue(hasattr(base, "update_at"))
 
 
-    def test_new(self):
-        base = FileStorage()
-        storage = FileStorage()
-        storage.new(base)
-        self.assertNotEqual(storage.all(), {})
-
     def save(self):
         base = FileStorage()
         base.save()
