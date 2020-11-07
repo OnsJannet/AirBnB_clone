@@ -92,9 +92,10 @@ class HBNBCommand(cmd.Cmd):
         else:
             del obj_dict["{}.{}".format(list_arg[0], list_arg[1])]
             storage.save()
-    
+
     def do_all(self, arg):
-        """ Prints all string representation of all instances based or not on the class name.
+        """ Prints all string representation of all instances
+         based or not on the class name.
          Ex: $ all BaseModel or $ all."""
         list_arg = arg.split()
         if len(list_arg) > 0 and list_arg[0] not in HBNBCommand.my_class:
@@ -166,6 +167,14 @@ class HBNBCommand(cmd.Cmd):
             if (list_arg[0] == obj.__class__.__name__):
                 c += 1
         print(c)
+
+    def precmd(self, arg):
+        list_arg = arg.split(".")
+        if "()" in arg and len(list_arg) == 2:
+            string = list_arg[1].split("(")[0] + " " + list_arg[0]
+            return string
+        else:
+            return arg
 
 
 if __name__ == '__main__':
