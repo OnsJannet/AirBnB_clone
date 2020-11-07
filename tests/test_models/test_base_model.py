@@ -37,5 +37,15 @@ class TestBaseModelMethods(unittest.TestCase):
         self.assertEqual(str(new), "[{:s}] ({:s}) {}".format(
             new.__class__.__name__, new.id, new.__dict__))
 
+
+    def save(self):
+        base = BaseModel()
+        base.save()
+        self.assertTrue(os.path.exists(self.path_file('file.json')))
+
+        def to_dict(self):
+        base = BaseModel()
+        self.assertEqual(type(base.to_dict()), dict)
+
 if __name__ == '__main__':
     unittest.main()

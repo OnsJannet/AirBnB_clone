@@ -37,7 +37,6 @@ class FileStorage:
         with open(self.__file_path, mode="w") as my_file:
             json.dump(dict, my_file)
 
-
     def reload(self):
         """reload from JSON"""
         my_class = {"BaseModel": BaseModel, "Amenity": Amenity,
@@ -50,4 +49,3 @@ class FileStorage:
                 for key, value in dict_to_fill.items():
                     self.__objects[key] =\
                         my_class[value['__class__']](**value)
-
