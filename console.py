@@ -173,10 +173,10 @@ class HBNBCommand(cmd.Cmd):
         if "()" in arg and len(list_arg) == 2:
             string = list_arg[1].split("(")[0] + " " + list_arg[0]
         elif "("and")" in arg and len(list_arg) == 2:
-            string = list_arg[1].split("('")[0] + " " + list_arg[0] \
-                + " " + list_arg[1].split("('")[1].split("')")[0]
-
-            return string
+            spc = " "
+            string = list_arg[1].split("('")[0] + spc + list_arg[0]
+            string2 = spc + list_arg[1].split("(\'")[1].split("\')")[0]
+            return string + string2
         else:
             return arg
 
