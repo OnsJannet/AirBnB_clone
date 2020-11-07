@@ -172,6 +172,10 @@ class HBNBCommand(cmd.Cmd):
         list_arg = arg.split(".")
         if "()" in arg and len(list_arg) == 2:
             string = list_arg[1].split("(")[0] + " " + list_arg[0]
+        elif "("and")" in arg and len(list_arg) == 2:
+            string = list_arg[1].split("('")[0] + " " + list_arg[0] \
+                + " " + list_arg[1].split("('")[1].split("')")[0]
+
             return string
         else:
             return arg
