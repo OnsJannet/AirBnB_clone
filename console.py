@@ -62,7 +62,7 @@ class HBNBCommand(cmd.Cmd):
             return
         arg_list = arg.split()
         try:
-            args = eval(arg_list[0])()
+            list_arg = eval(arg_list[0])()
         except Exception:
             print("** class doesn't exist **")
             return
@@ -168,22 +168,51 @@ class HBNBCommand(cmd.Cmd):
                 c += 1
         print(c)
 
-    def precmdd(self, arg):
+    def point_all(self, arg):
         list_arg = arg.split(".")
         if "()" in arg and len(list_arg) == 2:
             string = list_arg[1].split("(")[0] + " " + list_arg[0]
+            return string
+        else:
+            return arg
+
+    def point_count(self, arg):
+        list_arg = arg.split(".")
+        if "()" in arg and len(list_arg) == 2:
+            string = list_arg[1].split("(")[0] + " " + list_arg[0]
+            return string
+        else:
+            return arg
+
+    def point_show(self, arg):
+        list_arg = arg.split(".")
+        if "(" and ")" in arg and len(list_arg) == 2:
+            new = list_arg[1].split("(\"")
+            new[1] = new[1].split("\")")[0]
+            string = new[0] + " " + list_arg[0] + " " + new[1]
+            return string
+        else:
+            return arg
+
+    def point_destroy(self, arg):
+        list_arg = arg.split(".")
+        if "(" and ")" in arg and len(list_arg) == 2:
+            new = list_arg[1].split("(\"")
+            new[1] = new[1].split("\")")[0]
+            string = new[0] + " " + list_arg[0] + " " + new[1]
+            return string
         else:
             return arg
 
     def precmd(self, arg):
-        list_arg = arg.split(".")
-        if "("and")" in arg and len(list_arg) == 2:
-            spc = " "
-            string = list_arg[1].split("(\"")[0] + spc + list_arg[0]
-            string2 = spc + list_arg[1].split("(\"")[1].split("\")")[0]
-            return string + string2
-        else:
-            return arg
+        x = self.point_all(arg)
+        if(x == arg):
+            x = self.point_count(arg)
+        if(x == arg):
+            x = self.point_show(arg)
+        if(x == arg):
+            x = self.point_destroy(arg)
+        return x
 
 
 if __name__ == '__main__':
