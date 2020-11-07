@@ -173,7 +173,7 @@ class HBNBCommand(cmd.Cmd):
         if "()" in arg and len(list_arg) == 2:
             string = list_arg[1].split("(")[0] + " " + list_arg[0]
         else:
-            return string
+            return arg
 
     def precmd(self, arg):
         list_arg = arg.split(".")
