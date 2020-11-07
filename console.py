@@ -168,11 +168,16 @@ class HBNBCommand(cmd.Cmd):
                 c += 1
         print(c)
 
-    def precmd(self, arg):
+    def precmdd(self, arg):
         list_arg = arg.split(".")
         if "()" in arg and len(list_arg) == 2:
             string = list_arg[1].split("(")[0] + " " + list_arg[0]
-        elif "("and")" in arg and len(list_arg) == 2:
+        else:
+            return string
+
+    def precmd(self, arg):
+        list_arg = arg.split(".")
+        if "("and")" in arg and len(list_arg) == 2:
             spc = " "
             string = list_arg[1].split("(\"")[0] + spc + list_arg[0]
             string2 = spc + list_arg[1].split("(\"")[1].split("\")")[0]
