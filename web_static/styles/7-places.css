@@ -6,6 +6,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+
 }
 
 .places div {
@@ -34,4 +35,5 @@
 
 .places h2 {
     font-size: 30px;
+    text-align: center;
 }
