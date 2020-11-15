@@ -49,8 +49,6 @@
 
 .price_by_night {
 	display: flex;
-	justify-content: center;
-	align-self: flex-end;
 	position: relative;
 	right: 0;
 	line-height: 56px;
