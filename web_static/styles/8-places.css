@@ -50,7 +50,7 @@
 .price_by_night {
 	display: flex;
 	position: relative;
-	right: 0;
+	right: 20px;
 	line-height: 56px;
 	color: #FF5A5F;
 	font-size: 30px;
@@ -60,12 +60,14 @@
 	float: right;
 	min-width: 60px;
     height: 60px;
-    margin-left: 80px;
+    margin-left: 80px;4
 }
 
 .information {
     height: 80px;
     position: absolute;
+    margin-top: 100px;
+    
 }
 
 .max_guest {
@@ -76,7 +78,6 @@
     background-repeat: no-repeat;
     background-position: 50% 20%;
     display: inline-block;
-    margin-top: 100px;
 }
 
 .number_rooms {
@@ -87,7 +88,6 @@
     background-repeat: no-repeat;
     background-position: 50% 20%;
     display: inline-block;
-    margin-top: 100px;
 }
 
 .number_bathrooms {
@@ -98,12 +98,11 @@
     background-repeat: no-repeat;
     background-position: 50% 20%;
     display: inline-block;
-    margin-top: 100px;
 }
 
 .information p {
     position: relative;
-    margin-top: 80px;
+    margin-top: 50px;
 }
 
 .user p {
